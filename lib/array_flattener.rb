@@ -1,11 +1,11 @@
 class ArrayFlattener
 
-  def self.flatten input_array
-    return [] if input_array.empty?
+  def self.flatten input
+    raise ArgumentError unless input&.kind_of?(Array)
     
     output = []
 
-    input_array.each do |element|
+    input.map do |element|
       if element.kind_of?(Array)
         output = output + flatten(element)
       else
