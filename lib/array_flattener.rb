@@ -7,7 +7,7 @@ class ArrayFlattener
 
     input_array.each do |element|
       if element.kind_of?(Array)
-        output = output + element
+        output = output + flatten(element)
       else
         output << element
       end
